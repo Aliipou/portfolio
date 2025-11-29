@@ -38,68 +38,7 @@ portfolio/
 2. Open `index.html` in your browser
 3. No build process or dependencies required!
 
-## Deployment Options
 
-### Option 1: Vercel (Recommended for Next.js-like experience)
-
-1. Install Vercel CLI:
-   ```bash
-   npm i -g vercel
-   ```
-
-2. Deploy:
-   ```bash
-   cd portfolio
-   vercel
-   ```
-
-3. Follow the prompts and your site will be live!
-
-### Option 2: Netlify
-
-1. **Via Netlify CLI:**
-   ```bash
-   npm install netlify-cli -g
-   netlify deploy
-   ```
-
-2. **Via Drag & Drop:**
-   - Visit [netlify.com](https://app.netlify.com/drop)
-   - Drag and drop the portfolio folder
-   - Done!
-
-### Option 3: GitHub Pages
-
-1. Create a new repository on GitHub
-
-2. Push your code:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Portfolio website"
-   git branch -M main
-   git remote add origin https://github.com/Aliipou/portfolio.git
-   git push -u origin main
-   ```
-
-3. Enable GitHub Pages:
-   - Go to repository Settings → Pages
-   - Source: Deploy from branch `main` → `/root`
-   - Your site will be live at `https://aliipou.github.io/portfolio/`
-
-### Option 4: AWS Amplify
-
-1. Install AWS Amplify CLI:
-   ```bash
-   npm install -g @aws-amplify/cli
-   ```
-
-2. Initialize and deploy:
-   ```bash
-   amplify init
-   amplify add hosting
-   amplify publish
-   ```
 
 ## Customization
 
