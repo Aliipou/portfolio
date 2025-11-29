@@ -132,37 +132,6 @@ this.mouse.radius = 150; // Mouse interaction radius
 - `4` - Navigate to Contact
 - `ESC` - Scroll to top
 
-## Analytics
-
-To add analytics, insert your tracking code before the closing `</body>` tag in `index.html`.
-
-**Google Analytics:**
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>
-```
-
-## SEO Optimization
-
-The site includes:
-- Semantic HTML5 elements
-- Meta descriptions
-- Proper heading hierarchy
-- Descriptive link text
-- Fast load times
-
-To improve SEO further, consider adding:
-- Open Graph meta tags
-- Twitter Card meta tags
-- Schema.org markup
-- Sitemap.xml
-- robots.txt
 
 ## License
 
