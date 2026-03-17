@@ -486,6 +486,58 @@
     };
 
     // ============================================
+    // SECTION REVEAL — all .reveal-section elements
+    // ============================================
+
+    const initSectionReveal = () => {
+        const sections = document.querySelectorAll('.reveal-section');
+        if (!sections.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+        sections.forEach(s => observer.observe(s));
+    };
+
+    // ============================================
+    // LANGUAGE CARD FLAG BOUNCE — re-trigger on hover
+    // ============================================
+
+    const initLanguageCards = () => {
+        document.querySelectorAll('.language-card').forEach(card => {
+            const flag = card.querySelector('.language-flag');
+            if (!flag) return;
+            card.addEventListener('mouseenter', () => {
+                flag.style.animation = 'none';
+                // force reflow
+                void flag.offsetWidth;
+                flag.style.animation = '';
+            });
+        });
+    };
+
+    // ============================================
+    // PROJECT CARD — shimmer reset for repeat trigger
+    // ============================================
+
+    const initProjectShimmer = () => {
+        document.querySelectorAll('.project-card').forEach(card => {
+            const preview = card.querySelector('.project-preview');
+            if (!preview) return;
+            card.addEventListener('mouseleave', () => {
+                // Reset so shimmer re-runs on next hover
+                preview.style.setProperty('--shimmer-reset', '1');
+            });
+        });
+    };
+
+    // ============================================
     // INITIALIZE ALL
     // ============================================
 
@@ -504,6 +556,9 @@
         initCardTilt();
         initTypewriter();
         initTimelineReveal();
+        initSectionReveal();
+        initLanguageCards();
+        initProjectShimmer();
         showConsoleMessage();
         logPerformance();
     };

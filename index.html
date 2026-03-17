@@ -53,6 +53,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-bg-gradient"></div>
+        <div class="hero-mesh" aria-hidden="true"></div>
 
         <!-- Hero Particles -->
         <div class="hero-particles" aria-hidden="true">
@@ -91,25 +92,22 @@
                 <span class="hero-typewriter-text" id="typewriter-text"></span><span class="hero-typewriter-cursor" aria-hidden="true"></span>
             </div>
 
-            <!-- Profile Image with Glasses SVG Overlay -->
+            <!-- Profile Image with Spinning Ring -->
             <div class="hero-profile-wrapper">
-                <div class="profile-image-container">
-                    <img src="profile-ali.jpg" alt="Ali Pourrahim" class="hero-profile-photo">
-                    <div class="profile-glow"></div>
+                <div class="profile-ring">
+                    <div class="profile-image-container">
+                        <img src="profile-ali.jpg" alt="Ali Pourrahim" class="hero-profile-photo">
+                        <div class="profile-glow"></div>
+                    </div>
                 </div>
                 <!-- Developer Glasses Icon -->
                 <div class="developer-icon">
                     <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g class="glasses">
-                            <!-- Left lens -->
                             <circle cx="25" cy="40" r="12" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
-                            <!-- Right lens -->
                             <circle cx="55" cy="40" r="12" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
-                            <!-- Bridge -->
                             <line x1="37" y1="40" x2="43" y2="40" stroke="var(--accent)" stroke-width="2"/>
-                            <!-- Left arm -->
                             <path d="M 13 40 L 8 38" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-                            <!-- Right arm -->
                             <path d="M 67 40 L 72 38" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
                         </g>
                     </svg>
@@ -144,7 +142,7 @@
                 </a>
             </div>
 
-            <!-- Stats -->
+            <!-- Bento Stats Row -->
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-value">16+</div>
@@ -163,7 +161,7 @@
     </section>
 
     <!-- Work Experience -->
-    <section id="work">
+    <section id="work" class="reveal-section">
         <div class="section-header">
             <p class="section-label">Experience</p>
             <h2 class="section-title">Where I've Worked</h2>
@@ -264,7 +262,7 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects">
+    <section id="projects" class="reveal-section">
         <div class="section-header">
             <p class="section-label">Portfolio</p>
             <h2 class="section-title">Featured Projects</h2>
@@ -496,7 +494,7 @@
     </section>
 
     <!-- Certifications -->
-    <section id="certifications">
+    <section id="certifications" class="reveal-section">
         <div class="section-header">
             <p class="section-label">Credentials</p>
             <h2 class="section-title">Certifications & Skills</h2>
@@ -570,7 +568,7 @@
     </section>
 
     <!-- Expertise -->
-    <section id="expertise">
+    <section id="expertise" class="reveal-section">
         <div class="section-header">
             <p class="section-label">Skills</p>
             <h2 class="section-title">Areas of Expertise</h2>
@@ -663,13 +661,23 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact">
+    <section id="contact" class="reveal-section">
         <div class="contact-content">
             <div class="section-header">
                 <p class="section-label">Get in Touch</p>
                 <h2 class="section-title">Let's Work Together</h2>
                 <p class="section-description">
                     Open to Programmer, IT Specialist, and Python Developer roles
+                </p>
+            </div>
+
+            <div class="contact-cta-area">
+                <div class="available-badge">
+                    <span class="available-dot"></span>
+                    Available for Work
+                </div>
+                <p style="color:var(--text-secondary);font-size:1rem;line-height:1.6;max-width:480px;margin:0 auto;">
+                    I'm actively looking for new opportunities. Whether you have a question, a project, or just want to say hi — my inbox is open.
                 </p>
             </div>
 
@@ -713,6 +721,7 @@
         <div class="footer-content">
             <p class="footer-text">
                 © 2025 Ali Pourrahim · Full-stack Developer & Lifelong Student
+                <span class="footer-sparkle" aria-hidden="true">✦</span>
             </p>
         </div>
     </footer>
