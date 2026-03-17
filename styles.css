@@ -839,6 +839,25 @@ section:nth-child(odd) {
     color: var(--accent);
 }
 
+.project-github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    transition: color var(--transition-fast);
+}
+
+.project-github-btn:hover {
+    color: var(--accent);
+}
+
 /* ============================================
    CERTIFICATIONS - Inspired by thealibigdeli.ir
    ============================================ */
