@@ -135,12 +135,14 @@
     // ============================================
 
     const initNavScroll = () => {
-        let lastScroll = 0;
         const nav = document.querySelector('.navigation');
+        const navLinks = document.querySelectorAll('.nav-link:not(.nav-link-cta)');
+        const sections = ['hero', 'work', 'projects', 'expertise', 'contact'].map(id => document.getElementById(id)).filter(Boolean);
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
 
+            // Nav background
             if (currentScroll > 100) {
                 nav.style.background = 'rgba(0, 0, 0, 0.95)';
                 nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
@@ -149,7 +151,70 @@
                 nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
             }
 
-            lastScroll = currentScroll;
+            // Active nav link
+            let current = '';
+            sections.forEach(section => {
+                if (currentScroll >= section.offsetTop - 200) {
+                    current = section.id;
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        });
+    };
+
+    // ============================================
+    // SCROLL PROGRESS BAR
+    // ============================================
+
+    const initScrollProgress = () => {
+        const bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+        });
+    };
+
+    // ============================================
+    // BACK TO TOP BUTTON
+    // ============================================
+
+    const initBackToTop = () => {
+        const btn = document.querySelector('.back-to-top');
+        if (!btn) return;
+        window.addEventListener('scroll', () => {
+            btn.classList.toggle('visible', window.pageYOffset > 400);
+        });
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    };
+
+    // ============================================
+    // HAMBURGER MENU
+    // ============================================
+
+    const initHamburger = () => {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (!hamburger || !navMenu) return;
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = hamburger.classList.toggle('open');
+            navMenu.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close on nav link click
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navMenu.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
         });
     };
 
@@ -273,6 +338,9 @@
         initScrollReveal();
         animateStats();
         initNavScroll();
+        initScrollProgress();
+        initBackToTop();
+        initHamburger();
         initKeyboardShortcuts();
         initProfileInteractions();
         showConsoleMessage();

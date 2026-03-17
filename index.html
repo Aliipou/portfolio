@@ -16,12 +16,17 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress"></div>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navigation">
         <div class="nav-container">
             <a href="#hero" class="nav-brand">Ali Pourrahim</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
             <div class="nav-menu">
                 <a href="#work" class="nav-link">Work</a>
                 <a href="#projects" class="nav-link">Projects</a>
@@ -95,6 +100,12 @@
                 </a>
                 <a href="#contact" class="btn btn-secondary">
                     Get in Touch
+                </a>
+                <a href="portfolio.pdf" download class="btn btn-ghost">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 2v8M8 10L5 7M8 10L11 7M3 13h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Download CV
                 </a>
             </div>
 
@@ -584,6 +595,13 @@
             </p>
         </div>
     </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 15V5M10 5L5 10M10 5L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>

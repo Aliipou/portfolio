@@ -188,8 +188,9 @@ body::before {
     font-weight: 500;
 }
 
-.nav-link:hover {
-    color: var(--text);
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent);
 }
 
 .nav-link-cta {
@@ -1062,6 +1063,108 @@ section:nth-child(odd) {
 }
 
 /* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-muted));
+    z-index: 9999;
+    transition: width 0.1s linear;
+}
+
+/* ============================================
+   HAMBURGER MENU
+   ============================================ */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    transition: all var(--transition-fast);
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 18px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================
+   BACK TO TOP
+   ============================================ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition);
+    z-index: 500;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Ghost button */
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 
@@ -1090,12 +1193,39 @@ section:nth-child(odd) {
         padding: 1rem;
     }
 
+    .hamburger {
+        display: flex;
+    }
+
     .nav-menu {
-        gap: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.97);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.5rem 0;
+        display: none;
+    }
+
+    .nav-menu.open {
+        display: flex;
     }
 
     .nav-link {
-        font-size: 0.875rem;
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+        border-radius: 0;
+    }
+
+    .nav-link-cta {
+        margin: 0.5rem 1.5rem;
+        border-radius: 6px;
+        text-align: center;
     }
 
     .hero-section {
