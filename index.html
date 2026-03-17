@@ -24,6 +24,7 @@
     <nav class="navigation">
         <div class="nav-container">
             <a href="#hero" class="nav-brand">Ali Pourrahim</a>
+            <span id="nav-section-pill" class="nav-section-pill"></span>
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -40,6 +41,22 @@
     <section id="hero" class="hero-section">
         <div class="hero-bg-gradient"></div>
 
+        <!-- Hero Particles -->
+        <div class="hero-particles" aria-hidden="true">
+            <div class="hero-particle" style="width:5px;height:5px;left:8%;top:18%;animation-duration:9s;animation-delay:0s;"></div>
+            <div class="hero-particle" style="width:3px;height:3px;left:22%;top:72%;animation-duration:12s;animation-delay:1.5s;"></div>
+            <div class="hero-particle" style="width:6px;height:6px;left:38%;top:30%;animation-duration:8s;animation-delay:0.8s;background:var(--accent2);"></div>
+            <div class="hero-particle" style="width:4px;height:4px;left:55%;top:82%;animation-duration:11s;animation-delay:3s;"></div>
+            <div class="hero-particle" style="width:3px;height:3px;left:68%;top:15%;animation-duration:10s;animation-delay:2s;background:var(--accent2);"></div>
+            <div class="hero-particle" style="width:5px;height:5px;left:78%;top:58%;animation-duration:14s;animation-delay:0.4s;"></div>
+            <div class="hero-particle" style="width:4px;height:4px;left:92%;top:35%;animation-duration:7s;animation-delay:1s;"></div>
+            <div class="hero-particle" style="width:3px;height:3px;left:15%;top:50%;animation-duration:13s;animation-delay:2.5s;background:var(--accent2);"></div>
+            <div class="hero-particle" style="width:6px;height:6px;left:45%;top:62%;animation-duration:9s;animation-delay:4s;"></div>
+            <div class="hero-particle" style="width:3px;height:3px;left:60%;top:42%;animation-duration:11s;animation-delay:1.2s;"></div>
+            <div class="hero-particle" style="width:5px;height:5px;left:30%;top:88%;animation-duration:10s;animation-delay:3.5s;background:var(--accent2);"></div>
+            <div class="hero-particle" style="width:4px;height:4px;left:85%;top:78%;animation-duration:8s;animation-delay:0.6s;"></div>
+        </div>
+
         <!-- Floating Code Symbols -->
         <div class="floating-symbols">
             <div class="code-symbol" style="left: 10%; top: 20%; animation-delay: 0s;">&lt;/&gt;</div>
@@ -54,6 +71,11 @@
             <div class="hero-badge">
                 <span class="status-dot"></span>
                 Open to work · Programmer, IT Specialist & Python Developer
+            </div>
+
+            <!-- Typewriter Subtitle -->
+            <div class="hero-typewriter" aria-live="polite">
+                <span class="hero-typewriter-text" id="typewriter-text"></span><span class="hero-typewriter-cursor" aria-hidden="true"></span>
             </div>
 
             <!-- Profile Image with Glasses SVG Overlay -->
@@ -240,6 +262,7 @@
 
         <div class="projects-grid">
             <div class="project-card">
+                <span class="project-category">Backend</span>
                 <div class="project-header">
                     <h3 class="project-title">Streaming Data Pipeline</h3>
                     <a href="https://github.com/Aliipou/streaming-data-pipeline" target="_blank" class="project-link">→</a>
@@ -255,6 +278,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">DevOps</span>
                 <div class="project-header">
                     <h3 class="project-title">Observability Platform</h3>
                     <a href="https://github.com/Aliipou/observability-platform" target="_blank" class="project-link">→</a>
@@ -270,6 +294,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">DevOps</span>
                 <div class="project-header">
                     <h3 class="project-title">PipelineGuard</h3>
                     <a href="https://github.com/Aliipou/PipelineGuard" target="_blank" class="project-link">→</a>
@@ -285,6 +310,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">AI</span>
                 <div class="project-header">
                     <h3 class="project-title">Agentic AI Linux Management</h3>
                     <a href="https://github.com/Aliipou/AgenticAIPoweredLinuxSystemManagement" target="_blank" class="project-link">→</a>
@@ -300,6 +326,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">AI</span>
                 <div class="project-header">
                     <h3 class="project-title">Codebase Intelligence</h3>
                     <a href="https://github.com/Aliipou/codebase_intelligence" target="_blank" class="project-link">→</a>
@@ -315,6 +342,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">Backend</span>
                 <div class="project-header">
                     <h3 class="project-title">Distributed Job Scheduler</h3>
                     <a href="https://github.com/Aliipou/distributedJobscheduler" target="_blank" class="project-link">→</a>
@@ -330,6 +358,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">NLP</span>
                 <div class="project-header">
                     <h3 class="project-title">Finnish NLP Toolkit API</h3>
                     <a href="https://github.com/Aliipou/finnish-nlp-toolkit-api" target="_blank" class="project-link">→</a>
@@ -345,6 +374,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">Cloud</span>
                 <div class="project-header">
                     <h3 class="project-title">Multi-Tenancy Kubernetes</h3>
                     <a href="https://github.com/Aliipou/multi-tenancy-kubernet" target="_blank" class="project-link">→</a>
@@ -360,6 +390,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">ML/AI</span>
                 <div class="project-header">
                     <h3 class="project-title">Student Retention Prediction</h3>
                     <a href="https://github.com/Aliipou/Student-Retention-Prediction" target="_blank" class="project-link">→</a>
@@ -375,6 +406,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">Backend</span>
                 <div class="project-header">
                     <h3 class="project-title">Maze Solution API</h3>
                     <a href="https://github.com/Aliipou/maze-solution-app" target="_blank" class="project-link">→</a>
@@ -390,6 +422,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">Data</span>
                 <div class="project-header">
                     <h3 class="project-title">Fingrid Dashboard</h3>
                     <a href="https://github.com/Aliipou/Fingrid-dashboard" target="_blank" class="project-link">→</a>
@@ -405,6 +438,7 @@
             </div>
 
             <div class="project-card">
+                <span class="project-category">NLP</span>
                 <div class="project-header">
                     <h3 class="project-title">Sentiment & Dialect Detection</h3>
                     <a href="https://github.com/Aliipou/sentiment-dialect-detection" target="_blank" class="project-link">→</a>

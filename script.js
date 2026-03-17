@@ -138,6 +138,8 @@
         const nav = document.querySelector('.navigation');
         const navLinks = document.querySelectorAll('.nav-link:not(.nav-link-cta)');
         const sections = ['hero', 'work', 'projects', 'expertise', 'contact'].map(id => document.getElementById(id)).filter(Boolean);
+        const sectionPill = document.getElementById('nav-section-pill');
+        const sectionLabels = { hero: 'Home', work: 'Experience', projects: 'Projects', expertise: 'Expertise', contact: 'Contact' };
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
@@ -161,6 +163,16 @@
             navLinks.forEach(link => {
                 link.classList.toggle('active', link.getAttribute('href') === '#' + current);
             });
+
+            // Section pill indicator
+            if (sectionPill) {
+                if (currentScroll > 200 && current && current !== 'hero') {
+                    sectionPill.textContent = sectionLabels[current] || current;
+                    sectionPill.classList.add('visible');
+                } else {
+                    sectionPill.classList.remove('visible');
+                }
+            }
         });
     };
 
@@ -329,6 +341,75 @@
     };
 
     // ============================================
+    // TYPEWRITER EFFECT
+    // ============================================
+
+    const initTypewriter = () => {
+        const el = document.getElementById('typewriter-text');
+        if (!el) return;
+
+        const phrases = [
+            'Full-stack Developer',
+            'Cloud Engineer',
+            'Python & Go Developer',
+            'AI/NLP Specialist'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 70;
+        const deletingSpeed = 35;
+        const pauseAfterType = 2000;
+        const pauseAfterDelete = 400;
+
+        const tick = () => {
+            const currentPhrase = phrases[phraseIndex];
+            if (!isDeleting) {
+                el.textContent = currentPhrase.slice(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(tick, pauseAfterType);
+                    return;
+                }
+                setTimeout(tick, typingSpeed);
+            } else {
+                el.textContent = currentPhrase.slice(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(tick, pauseAfterDelete);
+                    return;
+                }
+                setTimeout(tick, deletingSpeed);
+            }
+        };
+
+        tick();
+    };
+
+    // ============================================
+    // TIMELINE REVEAL (LEFT FADE-IN)
+    // ============================================
+
+    const initTimelineReveal = () => {
+        const items = document.querySelectorAll('.timeline-item');
+        if (!items.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+        items.forEach(item => observer.observe(item));
+    };
+
+    // ============================================
     // INITIALIZE ALL
     // ============================================
 
@@ -343,6 +424,8 @@
         initHamburger();
         initKeyboardShortcuts();
         initProfileInteractions();
+        initTypewriter();
+        initTimelineReveal();
         showConsoleMessage();
         logPerformance();
     };
