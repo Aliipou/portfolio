@@ -107,6 +107,110 @@ body::before {
     z-index: 0;
 }
 
+/* ============================================
+   AURORA BACKGROUND
+   ============================================ */
+
+.aurora {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.aurora-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    animation: aurora-drift linear infinite;
+}
+
+.aurora-orb:nth-child(1) {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #00D9FF, transparent 70%);
+    top: -200px; left: -100px;
+    animation-duration: 20s;
+}
+.aurora-orb:nth-child(2) {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #8B5CF6, transparent 70%);
+    top: 20%; right: -150px;
+    animation-duration: 25s;
+    animation-delay: -8s;
+}
+.aurora-orb:nth-child(3) {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, #00D9FF, transparent 70%);
+    bottom: 10%; left: 30%;
+    animation-duration: 18s;
+    animation-delay: -4s;
+}
+.aurora-orb:nth-child(4) {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, #8B5CF6, transparent 70%);
+    bottom: -100px; right: 20%;
+    animation-duration: 22s;
+    animation-delay: -12s;
+}
+
+@keyframes aurora-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(60px, -40px) scale(1.1); }
+    66%  { transform: translate(-40px, 60px) scale(0.95); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* ============================================
+   MOUSE SPOTLIGHT
+   ============================================ */
+
+.spotlight {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,217,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* ============================================
+   CURSOR TRAIL
+   ============================================ */
+
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 217, 255, 0.5);
+    pointer-events: none;
+    z-index: 9997;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: none) {
+    .cursor-dot, .cursor-ring { display: none; }
+}
+
 /* Floating Code Symbols */
 .floating-symbols {
     position: absolute;
@@ -781,8 +885,12 @@ section:nth-child(odd) {
 
 .project-card:hover {
     border-color: var(--accent);
-    transform: translateY(-8px);
     box-shadow: 0 24px 48px -12px var(--accent-glow);
+}
+
+.project-card.tilting {
+    transform-style: preserve-3d;
+    will-change: transform;
 }
 
 .project-header {

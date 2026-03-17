@@ -265,6 +265,82 @@
     };
 
     // ============================================
+    // MOUSE SPOTLIGHT + CUSTOM CURSOR
+    // ============================================
+
+    const initMouseFX = () => {
+        const spotlight = document.getElementById('spotlight');
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        if (!spotlight && !dot) return;
+
+        let ringX = 0, ringY = 0, dotX = 0, dotY = 0;
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (spotlight) {
+                spotlight.style.left = mouseX + 'px';
+                spotlight.style.top = mouseY + 'px';
+            }
+            if (dot) {
+                dot.style.left = mouseX + 'px';
+                dot.style.top = mouseY + 'px';
+            }
+        });
+
+        // Ring follows with smooth lag
+        const animateRing = () => {
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+            if (ring) {
+                ring.style.left = ringX + 'px';
+                ring.style.top = ringY + 'px';
+            }
+            requestAnimationFrame(animateRing);
+        };
+        animateRing();
+
+        // Expand ring on clickable elements
+        document.querySelectorAll('a, button, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if (ring) { ring.style.width = '48px'; ring.style.height = '48px'; ring.style.borderColor = 'var(--accent)'; }
+            });
+            el.addEventListener('mouseleave', () => {
+                if (ring) { ring.style.width = '32px'; ring.style.height = '32px'; ring.style.borderColor = 'rgba(0,217,255,0.5)'; }
+            });
+        });
+
+        document.addEventListener('mouseleave', () => {
+            if (dot) dot.style.opacity = '0';
+            if (ring) ring.style.opacity = '0';
+        });
+        document.addEventListener('mouseenter', () => {
+            if (dot) dot.style.opacity = '1';
+            if (ring) ring.style.opacity = '1';
+        });
+    };
+
+    // ============================================
+    // 3D CARD TILT
+    // ============================================
+
+    const initCardTilt = () => {
+        document.querySelectorAll('.project-card, .expertise-card, .stat-item').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(800px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg) translateY(-6px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    };
+
+    // ============================================
     // CONSOLE MESSAGE
     // ============================================
 
@@ -424,6 +500,8 @@
         initHamburger();
         initKeyboardShortcuts();
         initProfileInteractions();
+        initMouseFX();
+        initCardTilt();
         initTypewriter();
         initTimelineReveal();
         showConsoleMessage();
