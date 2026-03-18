@@ -625,10 +625,6 @@
         initMagneticButtons();
         showConsoleMessage();
         logPerformance();
-        // Render emoji flags cross-platform via Twemoji
-        if (window.twemoji) {
-            twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-        }
     };
 
     // Run on DOM ready
