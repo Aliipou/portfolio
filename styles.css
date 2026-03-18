@@ -29,26 +29,29 @@
     --gray-100: #f5f5f5;
     --white: #ffffff;
 
-    /* Accent Colors */
-    --accent: #00D9FF;
-    --accent-muted: #0099CC;
-    --accent-dim: rgba(0, 217, 255, 0.1);
-    --accent-glow: rgba(0, 217, 255, 0.3);
-    --accent-glow-strong: rgba(0, 217, 255, 0.5);
-    --accent2: #8B5CF6;
-    --accent2-dim: rgba(139, 92, 246, 0.1);
-    --accent2-glow: rgba(139, 92, 246, 0.3);
-    --accent2-glow-strong: rgba(139, 92, 246, 0.5);
+    /* Accent Colors — 2026 Electric Palette */
+    --accent: #38BDF8;
+    --accent-muted: #0EA5E9;
+    --accent-dim: rgba(56, 189, 248, 0.1);
+    --accent-glow: rgba(56, 189, 248, 0.3);
+    --accent-glow-strong: rgba(56, 189, 248, 0.5);
+    --accent2: #E879F9;
+    --accent2-dim: rgba(232, 121, 249, 0.1);
+    --accent2-glow: rgba(232, 121, 249, 0.3);
+    --accent2-glow-strong: rgba(232, 121, 249, 0.5);
+    --accent3: #34D399;
+    --accent3-dim: rgba(52, 211, 153, 0.1);
+    --accent3-glow: rgba(52, 211, 153, 0.25);
 
     /* Theme */
-    --bg: #030712;
-    --bg-elevated: #0d1117;
-    --bg-card: #111827;
-    --text: #ffffff;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border: #1e293b;
-    --border-light: #0f172a;
+    --bg: #03050F;
+    --bg-elevated: #080D1A;
+    --bg-card: #0D1424;
+    --text: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --border: #1A2540;
+    --border-light: #0F1829;
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -1711,6 +1714,13 @@ section:nth-child(odd) {
     transition: transform var(--transition);
     will-change: transform;
 }
+/* Twemoji flag images */
+.language-flag img.emoji {
+    width: 2.75rem;
+    height: 2.75rem;
+    vertical-align: middle;
+    display: inline-block;
+}
 
 .language-card:hover .language-flag {
     animation: flag-bounce 0.5s var(--ease-spring);
@@ -2220,4 +2230,224 @@ section:nth-child(odd) {
     .languages-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* ============================================================
+   2026 UPGRADES
+   ============================================================ */
+
+/* --- Grain / Film Noise Overlay --- */
+.grain-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9990;
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: grainShift 8s steps(12) infinite;
+}
+
+@keyframes grainShift {
+    0%   { transform: translate(0, 0); }
+    10%  { transform: translate(-4%, -8%); }
+    20%  { transform: translate(-12%, 4%); }
+    30%  { transform: translate(6%, -20%); }
+    40%  { transform: translate(-4%, 20%); }
+    50%  { transform: translate(-12%, 8%); }
+    60%  { transform: translate(12%, 0%); }
+    70%  { transform: translate(0%, 12%); }
+    80%  { transform: translate(3%, 28%); }
+    90%  { transform: translate(-8%, 8%); }
+    100% { transform: translate(0, 0); }
+}
+
+/* --- Tech Stack Marquee --- */
+.marquee-section {
+    overflow: hidden;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 8%, transparent 92%, var(--bg) 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.marquee-track {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    white-space: nowrap;
+    animation: marqueeScroll 28s linear infinite;
+    flex-shrink: 0;
+}
+
+.marquee-content span {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.marquee-content span:hover {
+    color: var(--accent);
+}
+
+.marquee-sep {
+    color: var(--accent) !important;
+    opacity: 0.4;
+    font-size: 1rem !important;
+    letter-spacing: 0 !important;
+}
+
+@keyframes marqueeScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Pause on hover */
+.marquee-section:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* --- Section Number Background --- */
+.section-header {
+    position: relative;
+}
+
+.section-num {
+    position: absolute;
+    top: -0.3em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(5rem, 14vw, 11rem);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border);
+    opacity: 0.5;
+    pointer-events: none;
+    line-height: 1;
+    z-index: 0;
+    user-select: none;
+    letter-spacing: -0.04em;
+}
+
+.section-header > *:not(.section-num) {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Bento Grid for Projects --- */
+@media (min-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(6, 1fr);
+        max-width: 1280px;
+    }
+
+    .projects-grid .project-card {
+        grid-column: span 2;
+    }
+
+    /* First 2 cards are featured — wider */
+    .projects-grid .project-card:nth-child(1),
+    .projects-grid .project-card:nth-child(2) {
+        grid-column: span 3;
+        flex-direction: row;
+    }
+
+    .projects-grid .project-card:nth-child(1) .project-preview,
+    .projects-grid .project-card:nth-child(2) .project-preview {
+        width: 220px;
+        height: auto;
+        flex-shrink: 0;
+        border-radius: 24px 0 0 24px;
+    }
+
+    .projects-grid .project-card:nth-child(1) .project-body,
+    .projects-grid .project-card:nth-child(2) .project-body {
+        flex: 1;
+    }
+}
+
+/* --- Animated Gradient Border on Featured Cards --- */
+@media (min-width: 900px) {
+    .projects-grid .project-card:nth-child(1),
+    .projects-grid .project-card:nth-child(2) {
+        border-color: transparent;
+        background-clip: padding-box;
+        position: relative;
+    }
+
+    .projects-grid .project-card:nth-child(1)::before,
+    .projects-grid .project-card:nth-child(2)::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border-radius: 25px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
+        background-size: 300% 300%;
+        animation: borderGradientSpin 6s ease infinite;
+        z-index: -1;
+    }
+
+    @keyframes borderGradientSpin {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+}
+
+/* --- Stagger animation on scroll reveal for project cards --- */
+.projects-grid .project-card:nth-child(1)  { --stagger: 0ms; }
+.projects-grid .project-card:nth-child(2)  { --stagger: 60ms; }
+.projects-grid .project-card:nth-child(3)  { --stagger: 120ms; }
+.projects-grid .project-card:nth-child(4)  { --stagger: 180ms; }
+.projects-grid .project-card:nth-child(5)  { --stagger: 240ms; }
+.projects-grid .project-card:nth-child(6)  { --stagger: 300ms; }
+.projects-grid .project-card:nth-child(7)  { --stagger: 360ms; }
+.projects-grid .project-card:nth-child(8)  { --stagger: 420ms; }
+.projects-grid .project-card:nth-child(9)  { --stagger: 480ms; }
+.projects-grid .project-card:nth-child(10) { --stagger: 540ms; }
+.projects-grid .project-card:nth-child(11) { --stagger: 600ms; }
+
+/* --- Magnetic Button — CSS part --- */
+.btn {
+    transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+/* --- Tech tag accent3 color for third-type items --- */
+.timeline-tech span:nth-child(3n),
+.expertise-skills span:nth-child(3n),
+.project-tech span:nth-child(3n) {
+    border-color: var(--accent3-dim);
+    color: var(--accent3);
+}
+
+/* --- Glossy card improvement --- */
+.expertise-card,
+.cert-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: linear-gradient(145deg, rgba(13,20,36,0.9) 0%, rgba(8,13,26,0.7) 100%);
+    border-color: rgba(56, 189, 248, 0.08);
+}
+
+/* --- Hero name scramble pointer --- */
+#scramble-text {
+    cursor: default;
+}
+
+#scramble-text:hover {
+    color: var(--accent);
+    transition: color 0.1s;
 }

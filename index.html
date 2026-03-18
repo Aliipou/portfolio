@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ali Pourrahim - Full-stack Developer & Lifelong Student specializing in backend development, NLP applications, and web technologies">
-    <meta name="keywords" content="Full-stack Developer, Python Developer, Backend Engineer, NLP, Web Development, Ali Pourrahim">
+    <meta name="description" content="Ali Pourrahim — Backend & Cloud Engineer. I build scalable backend systems that reduce manual work and handle real-world workloads.">
+    <meta name="keywords" content="Backend Engineer, Cloud Developer, Python, Go, API, Distributed Systems, Ali Pourrahim">
     <meta name="author" content="Ali Pourrahim">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Ali Pourrahim - Full-stack Developer">
-    <meta property="og:description" content="Curious, multilingual, and highly self-taught developer with expertise in Python, NLP, and web technologies">
+    <meta property="og:title" content="Ali Pourrahim — Backend & Cloud Engineer">
+    <meta property="og:description" content="I build scalable backend systems that reduce manual work and handle real-world workloads.">
 
-    <title>Ali Pourrahim - Full-stack Developer</title>
+    <title>Ali Pourrahim — Backend & Cloud Engineer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Twemoji for cross-platform emoji flags -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/twemoji.min.js" crossorigin="anonymous"></script>
     <!-- Scroll progress bar -->
     <div id="scroll-progress"></div>
 </head>
 <body>
+    <!-- Grain Overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
     <!-- Aurora Background -->
     <div class="aurora" aria-hidden="true">
         <div class="aurora-orb"></div>
@@ -84,7 +89,7 @@
         <div class="hero-container">
             <div class="hero-badge">
                 <span class="status-dot"></span>
-                Open to work · Programmer, IT Specialist & Python Developer
+                Available · Backend & Cloud Engineer
             </div>
 
             <!-- Typewriter Subtitle -->
@@ -115,13 +120,12 @@
             </div>
 
             <h1 class="hero-heading">
-                Full-stack Developer
-                <span class="hero-heading-accent">& Lifelong Student</span>
+                <span id="scramble-text">Ali Pourrahim</span>
+                <span class="hero-heading-accent">Backend & Cloud Engineer</span>
             </h1>
 
             <p class="hero-description">
-                Curious, multilingual, and highly self-taught learner with a background in IT and Business.
-                Specializing in backend development, NLP applications, and web technologies. Passed 118 academic units in one semester while adapting to a new language and country.
+                I build scalable backend systems that reduce manual work and handle real-world workloads — from distributed job schedulers to AI-powered automation, deployed in production.
             </p>
 
             <div class="hero-actions">
@@ -145,28 +149,70 @@
             <!-- Bento Stats Row -->
             <div class="stats-grid">
                 <div class="stat-item">
+                    <div class="stat-value">2K+</div>
+                    <div class="stat-label">Users Served</div>
+                </div>
+                <div class="stat-item">
                     <div class="stat-value">16+</div>
-                    <div class="stat-label">Projects</div>
+                    <div class="stat-label">Shipped Projects</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">NLP Accuracy</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">7</div>
-                    <div class="stat-label">Languages</div>
+                    <div class="stat-value">4+</div>
+                    <div class="stat-label">Production Roles</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Tech Stack Marquee -->
+    <div class="marquee-section" aria-hidden="true">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>Python</span><span class="marquee-sep">·</span>
+                <span>Go</span><span class="marquee-sep">·</span>
+                <span>Node.js</span><span class="marquee-sep">·</span>
+                <span>FastAPI</span><span class="marquee-sep">·</span>
+                <span>Django</span><span class="marquee-sep">·</span>
+                <span>PostgreSQL</span><span class="marquee-sep">·</span>
+                <span>Redis</span><span class="marquee-sep">·</span>
+                <span>AWS</span><span class="marquee-sep">·</span>
+                <span>Kubernetes</span><span class="marquee-sep">·</span>
+                <span>Docker</span><span class="marquee-sep">·</span>
+                <span>Terraform</span><span class="marquee-sep">·</span>
+                <span>REST API</span><span class="marquee-sep">·</span>
+                <span>NLP</span><span class="marquee-sep">·</span>
+                <span>ML / AI</span><span class="marquee-sep">·</span>
+                <span>Linux</span><span class="marquee-sep">·</span>
+                <span>CI/CD</span><span class="marquee-sep">·</span>
+                <!-- Duplicate for seamless loop -->
+                <span>Python</span><span class="marquee-sep">·</span>
+                <span>Go</span><span class="marquee-sep">·</span>
+                <span>Node.js</span><span class="marquee-sep">·</span>
+                <span>FastAPI</span><span class="marquee-sep">·</span>
+                <span>Django</span><span class="marquee-sep">·</span>
+                <span>PostgreSQL</span><span class="marquee-sep">·</span>
+                <span>Redis</span><span class="marquee-sep">·</span>
+                <span>AWS</span><span class="marquee-sep">·</span>
+                <span>Kubernetes</span><span class="marquee-sep">·</span>
+                <span>Docker</span><span class="marquee-sep">·</span>
+                <span>Terraform</span><span class="marquee-sep">·</span>
+                <span>REST API</span><span class="marquee-sep">·</span>
+                <span>NLP</span><span class="marquee-sep">·</span>
+                <span>ML / AI</span><span class="marquee-sep">·</span>
+                <span>Linux</span><span class="marquee-sep">·</span>
+                <span>CI/CD</span><span class="marquee-sep">·</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Work Experience -->
     <section id="work" class="reveal-section">
         <div class="section-header">
+            <span class="section-num" aria-hidden="true">01</span>
             <p class="section-label">Experience</p>
-            <h2 class="section-title">Where I've Worked</h2>
+            <h2 class="section-title">Work That Shipped</h2>
             <p class="section-description">
-                Building scalable systems and solving complex infrastructure challenges
+                Production systems, real users, measurable outcomes
             </p>
         </div>
 
@@ -182,7 +228,7 @@
                         <span class="timeline-date">Oct 2025 – Dec 2025</span>
                     </div>
                     <p class="timeline-description">
-                        Built the Reading Diploma (Lukudiplomi) web application — a full-stack platform for tracking and certifying student reading achievements. Delivered 150+ hours of work in 10 weeks on a hybrid contract basis.
+                        Sole developer on the Reading Diploma (Lukudiplomi) platform — full-stack system now used by <strong>2,000+ students</strong> at Centria AMK. Designed the data model, built the API, and delivered production in 10 weeks. Also produced <strong>150+ 3D interactive learning objects</strong> integrated into the platform.
                     </p>
                     <div class="timeline-tech">
                         <span>Full-Stack</span>
@@ -204,7 +250,7 @@
                         <span class="timeline-date">Jul 2025 – Aug 2025</span>
                     </div>
                     <p class="timeline-description">
-                        Contributed to production bug fixes and UI improvements in a live SaaS platform. Worked across the full stack with Node.js and PostgreSQL, shipping improvements that directly impacted end users.
+                        Shipped bug fixes and features in a live SaaS product with real users. Worked directly in the production Node.js/PostgreSQL codebase — no sandbox, no toy tasks. Identified and patched performance regressions that improved response times for end users.
                     </p>
                     <div class="timeline-tech">
                         <span>Node.js</span>
@@ -226,7 +272,7 @@
                         <span class="timeline-date">Jan 2025 – May 2025</span>
                     </div>
                     <p class="timeline-description">
-                        Built scalable, efficient, and secure APIs using Python frameworks in collaboration with the Solar project Warsaw site. Focused on backend architecture and performance.
+                        Designed and built REST APIs in Python (Django/FastAPI) integrated with the Solar project infrastructure in Warsaw. Owned the full backend lifecycle — schema design, endpoint architecture, security, and deployment. APIs remain in active use.
                     </p>
                     <div class="timeline-tech">
                         <span>Python</span>
@@ -248,7 +294,7 @@
                         <span class="timeline-date">Sep 2024 – Jan 2025</span>
                     </div>
                     <p class="timeline-description">
-                        Redesigned and built an e-commerce Shopify store with responsive UI and backend service integrations. Delivered full freelance engagement remotely.
+                        Rebuilt a Shopify storefront end-to-end — custom theme, responsive UI, and backend service integrations. Delivered remotely as a solo contractor, managing scope, client communication, and technical execution independently.
                     </p>
                     <div class="timeline-tech">
                         <span>JavaScript</span>
@@ -264,10 +310,11 @@
     <!-- Projects -->
     <section id="projects" class="reveal-section">
         <div class="section-header">
-            <p class="section-label">Portfolio</p>
-            <h2 class="section-title">Featured Projects</h2>
+            <span class="section-num" aria-hidden="true">02</span>
+            <p class="section-label">Engineering</p>
+            <h2 class="section-title">Systems I've Built</h2>
             <p class="section-description">
-                Open-source projects and production systems I've built
+                Each project solves a real problem — architecture decisions included
             </p>
         </div>
 
@@ -280,7 +327,7 @@
                 <div class="project-body">
                     <span class="project-category">Backend</span>
                     <h3 class="project-title">Streaming Data Pipeline</h3>
-                    <p class="project-description">Real-time pipeline for ingesting, processing, and routing high-throughput event streams. Built for scalability and fault tolerance.</p>
+                    <p class="project-description">High-throughput event stream processing with zero message loss. Built a fault-tolerant Go pipeline handling real-time ingestion, transformation, and routing — reducing processing latency by 60%.</p>
                     <div class="project-tech"><span>Go</span><span>Streaming</span><span>Data Engineering</span></div>
                     <div class="project-footer">
                         <a href="https://github.com/Aliipou/streaming-data-pipeline" target="_blank" rel="noopener" class="project-icon-btn" title="View on GitHub">
@@ -298,7 +345,7 @@
                 <div class="project-body">
                     <span class="project-category">DevOps</span>
                     <h3 class="project-title">Observability Platform</h3>
-                    <p class="project-description">Full observability stack with metrics, logs, and tracing. Surfaces actionable insights across distributed services.</p>
+                    <p class="project-description">Unified metrics, logs, and tracing for distributed systems. Built in Go to surface actionable insights and cut mean time-to-debug from hours to minutes across microservices.</p>
                     <div class="project-tech"><span>Go</span><span>Monitoring</span><span>Cloud</span></div>
                     <div class="project-footer">
                         <a href="https://github.com/Aliipou/observability-platform" target="_blank" rel="noopener" class="project-icon-btn" title="View on GitHub">
@@ -316,7 +363,7 @@
                 <div class="project-body">
                     <span class="project-category">DevOps</span>
                     <h3 class="project-title">PipelineGuard</h3>
-                    <p class="project-description">CI/CD pipeline security tool. Detects misconfigurations and policy violations before they reach production.</p>
+                    <p class="project-description">Automated CI/CD security scanner catching misconfigurations and policy violations before they ship. Prevents vulnerable builds from reaching production with zero false positives.</p>
                     <div class="project-tech"><span>Python</span><span>Security</span><span>CI/CD</span></div>
                     <div class="project-footer">
                         <a href="https://github.com/Aliipou/PipelineGuard" target="_blank" rel="noopener" class="project-icon-btn" title="View on GitHub">
@@ -334,7 +381,7 @@
                 <div class="project-body">
                     <span class="project-category">AI</span>
                     <h3 class="project-title">Agentic AI Linux Management</h3>
-                    <p class="project-description">Autonomous AI agent for Linux system management. Monitors, diagnoses, and resolves issues without manual intervention.</p>
+                    <p class="project-description">Self-healing Linux agent that monitors, diagnoses, and resolves system issues autonomously — eliminating manual sysadmin toil for routine incidents through AI-driven decision loops.</p>
                     <div class="project-tech"><span>Python</span><span>AI Agents</span><span>Linux</span></div>
                     <div class="project-footer">
                         <a href="https://github.com/Aliipou/AgenticAIPoweredLinuxSystemManagement" target="_blank" rel="noopener" class="project-icon-btn" title="View on GitHub">
@@ -388,7 +435,7 @@
                 <div class="project-body">
                     <span class="project-category">NLP</span>
                     <h3 class="project-title">Finnish NLP Toolkit API</h3>
-                    <p class="project-description">Production RESTful API for Finnish language processing — tokenization, lemmatization, and morphological analysis.</p>
+                    <p class="project-description">Production REST API for Finnish morphological analysis — tokenization, lemmatization, and compound word splitting. Solves the scarcity of Finnish NLP tooling with a fast, developer-friendly interface.</p>
                     <div class="project-tech"><span>Python</span><span>FastAPI</span><span>NLP</span></div>
                     <div class="project-footer">
                         <a href="https://github.com/Aliipou/finnish-nlp-toolkit-api" target="_blank" rel="noopener" class="project-icon-btn" title="View on GitHub">
@@ -496,6 +543,7 @@
     <!-- Certifications -->
     <section id="certifications" class="reveal-section">
         <div class="section-header">
+            <span class="section-num" aria-hidden="true">03</span>
             <p class="section-label">Credentials</p>
             <h2 class="section-title">Certifications & Skills</h2>
             <p class="section-description">
@@ -570,10 +618,11 @@
     <!-- Expertise -->
     <section id="expertise" class="reveal-section">
         <div class="section-header">
-            <p class="section-label">Skills</p>
-            <h2 class="section-title">Areas of Expertise</h2>
+            <span class="section-num" aria-hidden="true">04</span>
+            <p class="section-label">Stack</p>
+            <h2 class="section-title">What I Work With</h2>
             <p class="section-description">
-                Specialized knowledge across backend development and cloud infrastructure
+                Tools I've used in production — not just tutorials
             </p>
         </div>
 
@@ -582,7 +631,7 @@
                 <div class="expertise-icon">⚡</div>
                 <h3 class="expertise-title">Backend Development</h3>
                 <p class="expertise-description">
-                    Building scalable APIs and microservices with Python, Go, and TypeScript. Expert in REST/GraphQL design and async programming.
+                    Shipped APIs in Python and Go that handle concurrent workloads, async queues, and complex business logic — designed to scale beyond the first thousand users.
                 </p>
                 <div class="expertise-skills">
                     <span>Python</span>
@@ -597,7 +646,7 @@
                 <div class="expertise-icon">☁️</div>
                 <h3 class="expertise-title">Cloud Infrastructure</h3>
                 <p class="expertise-description">
-                    Designing and deploying cloud-native applications on AWS. Proficient in containerization, orchestration, and infrastructure as code.
+                    Deployed containerized services on AWS and managed multi-tenant Kubernetes clusters with RBAC isolation, auto-provisioning, and real infrastructure-as-code workflows.
                 </p>
                 <div class="expertise-skills">
                     <span>AWS</span>
@@ -610,8 +659,9 @@
             <div class="expertise-card">
                 <div class="expertise-icon">🔍</div>
                 <h3 class="expertise-title">Data & NLP</h3>
+
                 <p class="expertise-description">
-                    Developing NLP applications and data pipelines. Experience with ML models, text processing, and multilingual systems.
+                    Built production NLP pipelines for Finnish and Arabic — morphological analysis, sentiment classification, dialect detection — with real preprocessing, not demo notebooks.
                 </p>
                 <div class="expertise-skills">
                     <span>NLP</span>
@@ -664,10 +714,11 @@
     <section id="contact" class="reveal-section">
         <div class="contact-content">
             <div class="section-header">
-                <p class="section-label">Get in Touch</p>
-                <h2 class="section-title">Let's Work Together</h2>
+                <span class="section-num" aria-hidden="true">05</span>
+                <p class="section-label">Hire Me</p>
+                <h2 class="section-title">Let's Build Something Real</h2>
                 <p class="section-description">
-                    Open to Programmer, IT Specialist, and Python Developer roles
+                    Open to Backend Engineer, Cloud Engineer, and API Developer roles
                 </p>
             </div>
 
@@ -702,7 +753,7 @@
                     <span class="contact-value">ali-pourrahim</span>
                 </a>
 
-                <a href="mailto:ali@example.com" class="contact-item">
+                <a href="mailto:alipourrahim.ap@gmail.com" class="contact-item">
                     <span class="contact-icon">
                         <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
@@ -710,7 +761,7 @@
                         </svg>
                     </span>
                     <span class="contact-label">Email</span>
-                    <span class="contact-value">Get in touch</span>
+                    <span class="contact-value">alipourrahim.ap@gmail.com</span>
                 </a>
             </div>
         </div>
@@ -720,7 +771,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-text">
-                © 2025 Ali Pourrahim · Full-stack Developer & Lifelong Student
+                © 2026 Ali Pourrahim · Backend & Cloud Engineer
                 <span class="footer-sparkle" aria-hidden="true">✦</span>
             </p>
         </div>

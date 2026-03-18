@@ -53,26 +53,32 @@
     };
 
     // ============================================
-    // SCROLL REVEAL
+    // SCROLL REVEAL (with stagger)
     // ============================================
 
     const initScrollReveal = () => {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.08,
+            rootMargin: '0px 0px -80px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
+                    const el = entry.target;
+                    // Use CSS --stagger var if available, else compute from sibling index
+                    const stagger = getComputedStyle(el).getPropertyValue('--stagger');
+                    const delay = stagger ? parseInt(stagger) : (() => {
+                        const siblings = el.parentElement ? [...el.parentElement.children] : [];
+                        return siblings.indexOf(el) * 65;
+                    })();
+                    setTimeout(() => el.classList.add('fade-in'), delay);
+                    observer.unobserve(el);
                 }
             });
         }, observerOptions);
 
-        // Observe all cards
-        const elements = document.querySelectorAll('.project-card, .expertise-card, .timeline-item, .language-card');
+        const elements = document.querySelectorAll('.project-card, .expertise-card, .timeline-item, .language-card, .cert-card');
         elements.forEach(el => observer.observe(el));
     };
 
@@ -346,16 +352,16 @@
 
     const showConsoleMessage = () => {
         const styles = {
-            title: 'color: #00D9FF; font-size: 24px; font-weight: bold;',
+            title: 'color: #38BDF8; font-size: 24px; font-weight: bold;',
             subtitle: 'color: #a3a3a3; font-size: 14px;',
             line: 'color: #262626;',
             info: 'color: #737373;',
-            link: 'color: #00D9FF;'
+            link: 'color: #38BDF8;'
         };
 
         console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', styles.line);
         console.log('%c Ali Pourrahim', styles.title);
-        console.log('%c Full-stack Developer & Lifelong Student', styles.subtitle);
+        console.log('%c Backend & Cloud Engineer · 2026', styles.subtitle);
         console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', styles.line);
         console.log('%c Open to: Programmer, IT Specialist & Python Developer roles', styles.info);
         console.log('%c GitHub: github.com/Aliipou', styles.link);
@@ -382,7 +388,7 @@
                     const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
 
                     const emoji = pageLoadTime < 1000 ? '🚀' : pageLoadTime < 2000 ? '⚡' : '✓';
-                    console.log(`%c${emoji} Portfolio loaded in ${pageLoadTime}ms`, 'color: #00D9FF; font-weight: bold;');
+                    console.log(`%c${emoji} Portfolio loaded in ${pageLoadTime}ms`, 'color: #38BDF8; font-weight: bold;');
                 }, 0);
             });
         }
@@ -425,10 +431,10 @@
         if (!el) return;
 
         const phrases = [
-            'Full-stack Developer',
-            'Cloud Engineer',
+            'Backend & Cloud Developer',
+            'API & Systems Engineer',
             'Python & Go Developer',
-            'AI/NLP Specialist'
+            'AI/NLP Builder'
         ];
         let phraseIndex = 0;
         let charIndex = 0;
@@ -523,6 +529,62 @@
     };
 
     // ============================================
+    // TEXT SCRAMBLE — hero name on load + hover
+    // ============================================
+
+    const initTextScramble = () => {
+        const el = document.getElementById('scramble-text');
+        if (!el) return;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*';
+        const original = el.textContent;
+        let interval = null;
+
+        const scramble = () => {
+            clearInterval(interval);
+            let iteration = 0;
+            interval = setInterval(() => {
+                el.textContent = original
+                    .split('')
+                    .map((char, idx) => {
+                        if (char === ' ') return ' ';
+                        if (idx < iteration) return char;
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join('');
+                iteration += 0.4;
+                if (iteration >= original.length) {
+                    clearInterval(interval);
+                    el.textContent = original;
+                }
+            }, 28);
+        };
+
+        // Run once on page load
+        setTimeout(scramble, 600);
+        // Re-trigger on hover
+        el.addEventListener('mouseenter', scramble);
+    };
+
+    // ============================================
+    // MAGNETIC BUTTONS
+    // ============================================
+
+    const initMagneticButtons = () => {
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.28;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.28;
+                btn.style.transform = `translate(${x}px, ${y}px) scale(1.04)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+    };
+
+    // ============================================
     // PROJECT CARD — shimmer reset for repeat trigger
     // ============================================
 
@@ -559,8 +621,14 @@
         initSectionReveal();
         initLanguageCards();
         initProjectShimmer();
+        initTextScramble();
+        initMagneticButtons();
         showConsoleMessage();
         logPerformance();
+        // Render emoji flags cross-platform via Twemoji
+        if (window.twemoji) {
+            twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+        }
     };
 
     // Run on DOM ready
