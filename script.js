@@ -613,9 +613,9 @@
         initBackToTop();
         initHamburger();
         initKeyboardShortcuts();
-        initProfileInteractions();
-        initMouseFX();
-        initCardTilt();
+        // initProfileInteractions(); // removed — 3D tilt on photo feels gimmicky
+        // initMouseFX(); // removed — custom cursor/spotlight removed
+        // initCardTilt(); // removed — 3D card tilt removed
         initTypewriter();
         initTimelineReveal();
         initSectionReveal();

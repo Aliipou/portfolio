@@ -29,32 +29,33 @@
     --gray-100: #f5f5f5;
     --white: #ffffff;
 
-    /* Accent Colors — 2026 Electric Palette */
-    --accent: #38BDF8;
-    --accent-muted: #0EA5E9;
-    --accent-dim: rgba(56, 189, 248, 0.1);
-    --accent-glow: rgba(56, 189, 248, 0.3);
-    --accent-glow-strong: rgba(56, 189, 248, 0.5);
-    --accent2: #E879F9;
-    --accent2-dim: rgba(232, 121, 249, 0.1);
-    --accent2-glow: rgba(232, 121, 249, 0.3);
-    --accent2-glow-strong: rgba(232, 121, 249, 0.5);
-    --accent3: #34D399;
-    --accent3-dim: rgba(52, 211, 153, 0.1);
-    --accent3-glow: rgba(52, 211, 153, 0.25);
+    /* Accent Colors — Dark Editorial */
+    --accent: #10B981;
+    --accent-muted: #059669;
+    --accent-dim: rgba(16, 185, 129, 0.1);
+    --accent-glow: rgba(16, 185, 129, 0.18);
+    --accent-glow-strong: rgba(16, 185, 129, 0.3);
+    --accent2: #818CF8;
+    --accent2-dim: rgba(129, 140, 248, 0.1);
+    --accent2-glow: rgba(129, 140, 248, 0.18);
+    --accent2-glow-strong: rgba(129, 140, 248, 0.3);
+    --accent3: #F59E0B;
+    --accent3-dim: rgba(245, 158, 11, 0.1);
+    --accent3-glow: rgba(245, 158, 11, 0.18);
 
     /* Theme */
-    --bg: #03050F;
-    --bg-elevated: #080D1A;
-    --bg-card: #0D1424;
-    --text: #F1F5F9;
-    --text-secondary: #94A3B8;
-    --text-muted: #64748B;
-    --border: #1A2540;
-    --border-light: #0F1829;
+    --bg: #0A0A0A;
+    --bg-elevated: #111111;
+    --bg-card: #141414;
+    --text: #F0F0F0;
+    --text-secondary: #888888;
+    --text-muted: #555555;
+    --border: #1E1E1E;
+    --border-light: #161616;
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
     --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', monospace;
 
     /* Spacing */
@@ -2450,4 +2451,176 @@ section:nth-child(odd) {
 #scramble-text:hover {
     color: var(--accent);
     transition: color 0.1s;
+}
+
+/* ============================================================
+   DARK EDITORIAL OVERRIDES — Space Grotesk + Clean Minimal
+   ============================================================ */
+
+/* --- Display font on all headings --- */
+h1, h2, h3,
+.hero-heading,
+.section-title,
+.project-title,
+.expertise-title,
+.timeline-title,
+.cert-title,
+.nav-brand {
+    font-family: var(--font-display);
+}
+
+/* --- Hero heading: clean, no gradient --- */
+.hero-heading {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--text);
+    background-clip: unset;
+    color: var(--text);
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    letter-spacing: -0.04em;
+}
+
+.hero-heading-accent {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--accent);
+    background-clip: unset;
+    color: var(--accent);
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 0.4rem;
+}
+
+.hero-heading-accent::after {
+    display: none;
+}
+
+/* --- Section titles: clean white, no sweep animation --- */
+.section-title {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--text);
+    background-clip: unset;
+    color: var(--text);
+    animation: none;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    letter-spacing: -0.03em;
+}
+
+/* --- Remove aurora, particles, spotlight, cursor (hidden if still in DOM) --- */
+.aurora,
+.spotlight,
+.cursor-dot,
+.cursor-ring,
+.hero-particles,
+.floating-symbols,
+.grain-overlay {
+    display: none !important;
+}
+
+/* --- Profile ring: remove spin, simplify --- */
+.profile-ring::before,
+.profile-ring::after {
+    display: none;
+}
+
+.profile-ring {
+    animation: none;
+    border: 2px solid var(--border);
+    background: none;
+    padding: 3px;
+}
+
+/* --- Card hover: minimal — just border + tiny lift, no glow blob --- */
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 32px -8px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(16, 185, 129, 0.15);
+}
+
+.project-card:nth-child(even):hover {
+    border-color: var(--accent2);
+    box-shadow:
+        0 12px 32px -8px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(129, 140, 248, 0.15);
+}
+
+/* --- Expertise / cert card: clean, no heavy glassmorphism --- */
+.expertise-card,
+.cert-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg-card);
+    border-color: var(--border);
+}
+
+.expertise-card:hover,
+.cert-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+}
+
+/* --- Section label: use accent color --- */
+.section-label {
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* --- Timeline marker: emerald --- */
+.timeline-marker {
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* --- Status dot: emerald --- */
+.status-dot {
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+}
+
+/* --- Nav brand: display font, accent on hover --- */
+.nav-brand:hover {
+    color: var(--accent);
+}
+
+/* --- Remove bento featured card border spin (too flashy) --- */
+.projects-grid .project-card:nth-child(1)::before,
+.projects-grid .project-card:nth-child(2)::before {
+    display: none;
+}
+
+.projects-grid .project-card:nth-child(1),
+.projects-grid .project-card:nth-child(2) {
+    border-color: var(--border);
+}
+
+/* --- Footer: clean --- */
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* --- Scroll progress bar: emerald --- */
+#scroll-progress {
+    background: var(--accent) !important;
+}
+
+/* --- Back to top: clean --- */
+.back-to-top {
+    background: var(--bg-card);
+    border-color: var(--border);
+    color: var(--text-secondary);
+}
+
+.back-to-top:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
 }
